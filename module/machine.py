@@ -21,12 +21,10 @@ class Machine:
         os.system("cls")
         response = Money.read()
         cash = int(input('Add your cash deposit value: '))
-        if(response['data'] > 0):
-            Money.update(cash,'DEPOSIT')
-            response = Money.read()
-        else:
-            Money.create(cash)
-            response = Money.read()
+ 
+        Money.update(cash,'DEPOSIT')
+        response = Money.read()
+    
         os.system("cls")
         rupiah_string = "Your Balance Now: Rp {:,.0f}".format(float(response['data']))
         textFormatted(rupiah_string)
